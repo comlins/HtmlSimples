@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+	<script src="AngularSimples.js"></script>
+  </head>
+  <body>
+    <div>
+      <label>Nome:</label>
+      <input type="text" ng-model="seuNome" placeholder="Adicione seu nome aqui">
+      <hr>
+      <h1>Bem vindo {{seuNome}}!</h1>
+    </div>
+	
+	<div id="ctrl-as-exmpl" ng-controller="SettingsController1 as settings">
+      Name: <input type="text" ng-model="settings.nome"/>
+      [ <a href="" ng-click="settings.alerta()">Alert</a> ]<br/>
+      <ul>
+        <li ng-repeat="contact in settings.contacts">
+          <select ng-model="contact.type">
+             <option>telefone</option>
+             <option>email</option>
+          </select>
+          <input type="text" ng-model="contact.value"/>
+          [ <a href="" ng-click="settings.clearContact(contact)">Limpar</a>
+          | <a href="" ng-click="settings.removeContact(contact)">Remover</a> ]
+        </li>
+        <li>[ <a href="" ng-click="settings.addContact()">Adicionar</a> ]</li>
+     </ul>
+    </div>
+	
+  </body>
+</html>
